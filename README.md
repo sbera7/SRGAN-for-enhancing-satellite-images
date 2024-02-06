@@ -1,1 +1,1 @@
-# SRGAN-for-enhancing-satellite-images
+# SRGAN for enhancing satellite images
