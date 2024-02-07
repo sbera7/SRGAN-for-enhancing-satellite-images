@@ -53,13 +53,8 @@ def train(args):
 
         pre_epoch += 1
 
-        if pre_epoch % 2 == 0:
-            print(pre_epoch)
-            print(loss.item())
-            print('=========')
-        
-        if pre_epoch % 800 ==0:
-            torch.save(generator.state_dict(), './model/pre_trained_model_%03d.pt'%pre_epoch)
+        print('Epoch - ', pre_epoch, ', Loss - ', loss.item())
+        torch.save(generator.state_dict(), './model/pre_trained_model_%03d.pt'%pre_epoch)
 
         
     #### Train using perceptual & adversarial loss
