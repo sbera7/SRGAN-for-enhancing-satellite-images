@@ -8,7 +8,6 @@ import random
 
 class mydata(Dataset):
     def __init__(self, LR_path, GT_path, in_memory = True, transform = None):
-        
         self.LR_path = LR_path
         self.GT_path = GT_path
         self.in_memory = in_memory
@@ -22,11 +21,9 @@ class mydata(Dataset):
             self.GT_img = [np.array(Image.open(os.path.join(self.GT_path, gt)).convert("RGB")).astype(np.uint8) for gt in self.GT_img]
         
     def __len__(self):
-        
         return len(self.LR_img)
         
     def __getitem__(self, i):
-        
         img_item = {}
         
         if self.in_memory:
@@ -51,7 +48,6 @@ class mydata(Dataset):
     
 class testOnly_data(Dataset):
     def __init__(self, LR_path, in_memory = True, transform = None):
-        
         self.LR_path = LR_path
         self.LR_img = sorted(os.listdir(LR_path))
         self.in_memory = in_memory
@@ -59,11 +55,9 @@ class testOnly_data(Dataset):
             self.LR_img = [np.array(Image.open(os.path.join(self.LR_path, lr))) for lr in self.LR_img]
         
     def __len__(self):
-        
         return len(self.LR_img)
         
     def __getitem__(self, i):
-        
         img_item = {}
         
         if self.in_memory:
@@ -80,7 +74,6 @@ class testOnly_data(Dataset):
 
 class crop(object):
     def __init__(self, scale, patch_size):
-        
         self.scale = scale
         self.patch_size = patch_size
         
@@ -100,7 +93,6 @@ class crop(object):
         return {'LR' : LR_patch, 'GT' : GT_patch}
 
 class augmentation(object):
-    
     def __call__(self, sample):
         LR_img, GT_img = sample['LR'], sample['GT']
         
