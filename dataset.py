@@ -5,7 +5,6 @@ from PIL import Image
 import numpy as np
 import random
 
-
 class mydata(Dataset):
     def __init__(self, LR_path, GT_path, in_memory = True, transform = None):
         self.LR_path = LR_path
