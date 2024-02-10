@@ -19,7 +19,6 @@ class MeanShift(nn.Conv2d):
 
 
 class perceptual_loss(nn.Module):
-
     def __init__(self, vgg):
         super(perceptual_loss, self).__init__()
         self.normalization_mean = [0.485, 0.456, 0.406]
@@ -28,6 +27,7 @@ class perceptual_loss(nn.Module):
         self.transform = MeanShift(norm_mean = self.normalization_mean, norm_std = self.normalization_std).to(self.device)
         self.vgg = vgg
         self.criterion = nn.MSELoss()
+        
     def forward(self, HR, SR, layer = 'relu5_4'):
         ## HR and SR should be normalized [0,1]
         hr = self.transform(HR)
