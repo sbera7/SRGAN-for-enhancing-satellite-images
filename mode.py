@@ -118,7 +118,7 @@ def train(args):
             
         fine_epoch += 1
         
-        print('Fine tuning epoch - ', fine_epoch, ', Generator loss - 'g_loss.item(), ', Discriminator loss - ', d_loss.item())
+        print('Fine tuning epoch - ', fine_epoch, ', Generator loss - ', g_loss.item(), ', Discriminator loss - ', d_loss.item())
 
         torch.save(generator.state_dict(), './model/SRGAN_gene_%03d.pt'%fine_epoch)
         torch.save(discriminator.state_dict(), './model/SRGAN_discrim_%03d.pt'%fine_epoch)
