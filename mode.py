@@ -117,18 +117,11 @@ def train(args):
 
             
         fine_epoch += 1
+        
+        print('Fine tuning epoch - ', fine_epoch, ', Generator loss - 'g_loss.item(), ', Discriminator loss - ', d_loss.item())
 
-        if fine_epoch % 2 == 0:
-            print(fine_epoch)
-            print(g_loss.item())
-            print(d_loss.item())
-            print('=========')
-
-        if fine_epoch % 500 ==0:
-            #torch.save(generator.state_dict(), './model/SRGAN_gene_%03d.pt'%fine_epoch)
-            #torch.save(discriminator.state_dict(), './model/SRGAN_discrim_%03d.pt'%fine_epoch)
-            torch.save(generator.state_dict(), './model/SRGAN_gene_%03d.pt'%fine_epoch)
-            torch.save(discriminator.state_dict(), './model/SRGAN_discrim_%03d.pt'%fine_epoch)
+        torch.save(generator.state_dict(), './model/SRGAN_gene_%03d.pt'%fine_epoch)
+        torch.save(discriminator.state_dict(), './model/SRGAN_discrim_%03d.pt'%fine_epoch)
 
 
 # In[ ]:
