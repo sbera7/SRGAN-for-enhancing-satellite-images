@@ -10,8 +10,7 @@ class MyImageFolder(Dataset):
         super(MyImageFolder, self).__init__()
         self.root_dir = root_dir
         self.high_res = sorted(os.listdir(root_dir))
-        # self.data = list(zip(self.high_res, [index] * len(self.high_res)))
-
+        
     def __len__(self):
         return len(self.high_res)
 
